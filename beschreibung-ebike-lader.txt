@@ -1,0 +1,15 @@
+# E-Bike Ladesteuerung mit Node-RED, MQTT und Tasmota
+
+Automatisierte und intelligente E-Bike-Ladesteuerung zur Schonung des Akkus (Teilladen) sowie zum PV-Überschussladen.
+
+## Benötigte Hardware & Software
+* **Tasmota-Aktor / Steckdose** (mit Energiemessung, z. B. Gosund, Shelly oder Sonoff mit Tasmota)
+* **MQTT-Broker** (z. B. Mosquitto)
+* **Node-RED Server** (Zentrale Logik & Dashboard)
+* **Optional:** Intelligenter Stromzähler / Smart Meter (für PV-Überschussladen)
+
+## Features & Modi
+* **Voll-Laden:** Lädt den Akku komplett durch.
+* **Teilladen (~80%):** Startet den Ladevorgang mit einer 5-minütigen Anlaufphase (zur Pufferung von Einschaltstrom-Instabilitäten) und nutzt den **konfigurierbaren Abschaltstrom als präzises Indiz** für das automatische Beenden des Ladevorgangs.
+* **PV-Überschussladen:** Richtet sich nach der aktuellen Einspeisung bzw. dem Netzbezug über ein konfigurierbares Prüf-Intervall.
+* **Ladekurven-Aufzeichnung:** Mit dem beiliegenden Skript `ebike-ladekurve.py` lässt sich die Ladekurve (Strom, Spannung, Leistung über die Zeit) detailliert aufzeichnen.

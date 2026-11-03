@@ -1,0 +1,509 @@
+[
+    {
+        "id": "b45586208d9ee7b7",
+        "type": "tab",
+        "label": "E-Bike-Lader",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "54ab1d1c43b1f355",
+        "type": "ui-button",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "name": "Voll-Laden",
+        "label": "Voll-Laden",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "set_voll",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "443c72250dec45f5",
+        "type": "ui-number-input",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "name": "Abschaltstrom",
+        "label": "Abschaltstrom (A)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "set_cutoff_input",
+        "topicType": "msg",
+        "min": "0.1",
+        "max": "1.0",
+        "step": "0.05",
+        "tooltip": "",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "74ba7e18a0d14160",
+        "type": "ui-button",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "name": "Teilladen Starten",
+        "label": "Teilladen starten",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "set_teilladen",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "3e6475e524d8185f",
+        "type": "ui-switch",
+        "z": "b45586208d9ee7b7",
+        "name": "Überschussladen",
+        "label": "PV-Überschussladen",
+        "group": "8ddd60c2ecb9ded1",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "set_excess_switch",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "358f3e331ebafbe6",
+        "type": "ui-number-input",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "name": "Intervall",
+        "label": "Überschuss Prüf-Intervall (Minuten)",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "topic": "set_interval_input",
+        "topicType": "msg",
+        "min": 0,
+        "max": "30",
+        "step": 1,
+        "tooltip": "",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "aa5efb36005e5297",
+        "type": "mqtt out",
+        "z": "b45586208d9ee7b7",
+        "name": "MQTT E-Bike Out",
+        "topic": "cmnd/ebike/POWER",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_188",
+        "x": 1010,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c3d9e0a00c78af5f",
+        "type": "mqtt in",
+        "z": "b45586208d9ee7b7",
+        "name": "E-Bike SENSOR",
+        "topic": "tele/ebike/SENSOR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_188",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 580,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "bbcb208698ba6e8a",
+        "type": "mqtt in",
+        "z": "b45586208d9ee7b7",
+        "name": "WattWächter Unten SENSOR",
+        "topic": "tele/Unten-WattWaechter_67D580/SENSOR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_188",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 640,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "cf49cb9f38f81b4f",
+        "type": "ui-text",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Ladestrom",
+        "label": "Aktueller Ladestrom",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 990,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "aa218f84441e6d23",
+        "type": "mqtt in",
+        "z": "b45586208d9ee7b7",
+        "name": "",
+        "topic": "tele/ebike/SENSOR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_188",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 740,
+        "wires": [
+            [
+                "87711bd8e036962f"
+            ]
+        ]
+    },
+    {
+        "id": "87711bd8e036962f",
+        "type": "function",
+        "z": "b45586208d9ee7b7",
+        "name": "function 27",
+        "func": "let payload = msg.payload;\nif (typeof payload === 'string') {\n    try { payload = JSON.parse(payload); } catch (e) { return null; }\n}\n\n// Prüfen, ob ENERGY.Current im Payload vorhanden ist\nif (payload && payload.ENERGY && payload.ENERGY.Current !== undefined) {\n    let currentA = payload.ENERGY.Current;\n    // Wir geben nur den gerundeten Wert als Zahl zurück\n    msg.payload = currentA.toFixed(2); \n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 740,
+        "wires": [
+            [
+                "cf49cb9f38f81b4f"
+            ]
+        ]
+    },
+    {
+        "id": "6eb60a0941f7b759",
+        "type": "function",
+        "z": "b45586208d9ee7b7",
+        "name": "function 28",
+        "func": "// --- VOLLSTÄNDIGE E-BIKE STEUERUNGS- UND SCHUTZLOGIK ---\nlet msgTopic = msg.topic || \"\";\nlet payload = msg.payload;\n\nlet mode = flow.get(\"ebike_mode\") || \"OFF\";          \nlet excessActive = flow.get(\"ebike_excess\") || false;\nlet cutoffAmps = flow.get(\"ebike_cutoff\") || 0.5;      \nlet intervalMin = flow.get(\"ebike_interval\") || 5;     \n\nfunction parseJson(data) {\n    if (typeof data === 'string') {\n        try { data = JSON.parse(data); } catch (e) { return null; }\n    }\n    return data;\n}\n\n// --- 1. WIDGETS & SCHALTER VOM DASHBOARD VERARBEITEN ---\n\nif (msgTopic === \"set_aus\") {\n    flow.set(\"ebike_mode\", \"OFF\");\n    flow.set(\"ebike_excess\", false);\n    flow.set(\"ebike_start_time\", null);\n    node.status({ fill: \"red\", shape: \"ring\", text: \"Modus: Manuell AUS\" });\n    return { topic: \"cmnd/ebike/POWER\", payload: \"OFF\" }; \n}\n\nif (msgTopic === \"set_voll\") {\n    flow.set(\"ebike_mode\", \"FULL\");\n    flow.set(\"ebike_excess\", false);\n    flow.set(\"ebike_start_time\", null);\n    node.status({ fill: \"green\", shape: \"dot\", text: \"Modus: Voll-Laden aktiv\" });\n    return { topic: \"cmnd/ebike/POWER\", payload: \"ON\" }; \n}\n\nif (msgTopic === \"set_teilladen\") {\n    flow.set(\"ebike_mode\", \"PARTIAL\");\n    flow.set(\"ebike_excess\", false);\n    flow.set(\"ebike_start_time\", Date.now()); \n    node.status({ fill: \"blue\", shape: \"dot\", text: \"Modus: Teilladen (Anlaufphase 5 Min...)\" });\n    return { topic: \"cmnd/ebike/POWER\", payload: \"ON\" }; \n}\n\nif (msgTopic === \"set_excess_switch\") {\n    excessActive = Boolean(payload);\n    flow.set(\"ebike_excess\", excessActive);\n    if (excessActive) {\n        flow.set(\"ebike_mode\", \"OFF\");\n        node.status({ fill: \"green\", shape: \"ring\", text: \"Überschussladen eingeschaltet\" });\n        return null; \n    } else {\n        node.status({ fill: \"red\", shape: \"ring\", text: \"Überschussladen AUS\" });\n        return { topic: \"cmnd/ebike/POWER\", payload: \"OFF\" };\n    }\n}\n\nif (msgTopic === \"set_cutoff_input\") {\n    flow.set(\"ebike_cutoff\", Number(payload));\n    node.status({ fill: \"grey\", shape: \"dot\", text: `Abschaltstrom gesetzt: ${payload}A` });\n    return null;\n}\n\nif (msgTopic === \"set_interval_input\") {\n    flow.set(\"ebike_interval\", Number(payload));\n    node.status({ fill: \"grey\", shape: \"dot\", text: `Intervall gesetzt: ${payload} Min` });\n    return null;\n}\n\n\n// --- 2. ÜBERWACHUNG DER E-BIKE SENSOR-DATEN (Teilladen-Abschaltautomatik) ---\nif (msgTopic === \"tele/ebike/SENSOR\") {\n    let data = parseJson(payload);\n    if (data && data.ENERGY && data.ENERGY.Current !== undefined) {\n        let currentA = data.ENERGY.Current;\n        let powerW = data.ENERGY.Power;\n        let now = Date.now();\n\n        if (mode === \"PARTIAL\") {\n            let startTime = flow.get(\"ebike_start_time\") || now;\n            let elapsedSinceStartMs = now - startTime;\n            let warmupPeriodMs = 5 * 60 * 1000; \n\n            if (elapsedSinceStartMs < warmupPeriodMs) {\n                let remainingMin = Math.ceil((warmupPeriodMs - elapsedSinceStartMs) / 60000);\n                node.status({ \n                    fill: \"blue\", \n                    shape: \"dot\", \n                    text: `Teilladen (Anlauf): ${currentA}A | Noch ${remainingMin}m` \n                });\n                return null; \n            }\n\n            node.status({ fill: \"blue\", shape: \"dot\", text: `Teilladen aktiv: ${currentA}A (${powerW}W)` });\n\n            if (currentA > 0 && currentA <= cutoffAmps) {\n                flow.set(\"ebike_mode\", \"OFF\");\n                flow.set(\"ebike_start_time\", null);\n                node.status({ fill: \"green\", shape: \"ring\", text: `Teilladen beendet! Strom (${currentA}A) < ${cutoffAmps}A` });\n                return { topic: \"cmnd/ebike/POWER\", payload: \"OFF\" }; \n            }\n        }\n    }\n}\n\n\n// --- 3. ÜBERSCHUSSLADEN ---\nif (msgTopic === \"tele/Unten-WattWaechter_67D580/SENSOR\" && excessActive && mode === \"OFF\") {\n    let data = parseJson(payload);\n    if (data && data[\"\"] && data[\"\"].P !== undefined) {\n        let pGrid = data[\"\"].P; \n        let now = Date.now();\n        let lastCheck = flow.get(\"ebike_last_check\") || 0;\n        let intervalMs = intervalMin * 60 * 1000;\n\n        if (now - lastCheck >= intervalMs) {\n            flow.set(\"ebike_last_check\", now);\n\n            if (pGrid < -60) { \n                node.status({ fill: \"green\", shape: \"dot\", text: `Überschuss AN (P: ${pGrid}W)` });\n                return { topic: \"cmnd/ebike/POWER\", payload: \"ON\" };\n            } else if (pGrid > 20) { \n                node.status({ fill: \"red\", shape: \"ring\", text: `Netzbezug AUS (P: ${pGrid}W)` });\n                return { topic: \"cmnd/ebike/POWER\", payload: \"OFF\" };\n            }\n        }\n    }\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "aa5efb36005e5297"
+            ]
+        ]
+    },
+    {
+        "id": "69d16ed2754e5b48",
+        "type": "inject",
+        "z": "b45586208d9ee7b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set_voll",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f70ce5927c674d8",
+        "type": "ui-button",
+        "z": "b45586208d9ee7b7",
+        "group": "8ddd60c2ecb9ded1",
+        "name": "AUS",
+        "label": "Laden Sofort beenden",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "OFF",
+        "payloadType": "str",
+        "topic": "set_aus",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "6eb60a0941f7b759"
+            ]
+        ]
+    },
+    {
+        "id": "8ddd60c2ecb9ded1",
+        "type": "ui-group",
+        "name": "E-Bike",
+        "page": "27e7ee4bc33c31b7",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "mqtt_broker_188",
+        "type": "mqtt-broker",
+        "name": "Mosquitto (192.168.1.188)",
+        "broker": "192.168.1.188",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true
+    },
+    {
+        "id": "27e7ee4bc33c31b7",
+        "type": "ui-page",
+        "name": "E-Bike",
+        "ui": "534fea99cf7add44",
+        "path": "/page5",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "ceacaac374305c43",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 5,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "534fea99cf7add44",
+        "type": "ui-base",
+        "name": "E Bike",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ceacaac374305c43",
+        "type": "ui-theme",
+        "name": "Standardthema",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "785e35acac250be0",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.1"
+        }
+    }
+]
